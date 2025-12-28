@@ -46,7 +46,9 @@ wait t mname = do
     Result.await result
   
   where
-  newResult = Result.newResult
+  newResult = do 
+    Result.newResult
+
   nextId = do
     -- We use the current id before bumping to the next one.
     this <- getThis t

@@ -18,6 +18,12 @@ derive newtype instance Eq Queue
 derive newtype instance Ord Queue
 derive instance Newtype Queue _
 
+fromArray :: Array Item -> Queue
+fromArray arr = wrap $ Vector.fromArray arr
+
+toArray :: Queue -> Array Item
+toArray = unwrap >>> Vector.toArray
+
 empty :: Queue
 empty = wrap $ Vector.empty
 

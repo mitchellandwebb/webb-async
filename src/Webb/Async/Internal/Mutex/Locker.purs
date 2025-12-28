@@ -10,7 +10,7 @@ import Webb.Async.Data.Mutex.Id (Id)
 import Webb.Async.Data.Mutex.Id as Id
 import Webb.Async.Data.Mutex.Lease as Lease
 import Webb.Async.Internal.Mutex.State (MutexState)
-import Webb.Monad.Prelude (expect, throwString)
+import Webb.Monad.Prelude (expect)
 
 
 {- Responsible for the concept of locking the mutex. Transient; not meant to 
