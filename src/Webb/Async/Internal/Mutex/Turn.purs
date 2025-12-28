@@ -3,7 +3,6 @@ module Webb.Async.Internal.Mutex.Turn where
 import Prelude
 import Webb.State.Prelude
 
-import Data.Foldable (for_)
 import Data.Maybe (Maybe)
 import Data.Newtype (class Newtype, unwrap, wrap)
 import Effect.Aff (Aff)
