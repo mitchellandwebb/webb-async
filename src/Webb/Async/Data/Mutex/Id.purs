@@ -3,7 +3,7 @@ module Webb.Async.Data.Mutex.Id where
 import Prelude
 
 import Data.Int (rem)
-import Data.Newtype (class Newtype, unwrap, wrap)
+import Data.Newtype (class Newtype, modify, wrap)
 
 
 
@@ -17,9 +17,14 @@ derive newtype instance Show Id
 derive instance Newtype Id _
 
 next :: Id -> Id
-next = unwrap >>> inc >>> wrap
+next = modify $ inc
   where
   inc id = rem (id + 1) 100000
+
+prev :: Id -> Id
+prev = modify $ dec
+  where
+  dec id = rem (id - 1) 100000
   
 initial :: Id 
 initial = wrap 0

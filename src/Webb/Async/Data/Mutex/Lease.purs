@@ -5,6 +5,8 @@ import Prelude
 import Data.Maybe (Maybe(..), fromMaybe, isJust, isNothing)
 import Data.Newtype (class Newtype, unwrap, wrap)
 import Webb.Async.Data.Mutex.Id (Id)
+import Webb.Async.Data.Mutex.Item (Item)
+import Webb.Async.Data.Mutex.Item as Item
 
 
 {- Represent the lease state. Owned, or not owned? If owned, by whom?
@@ -30,6 +32,9 @@ newLease t n = wrap (Just { id: t, name: n })
 
 newLease' :: Id -> Lease 
 newLease' t = wrap (Just { id: t, name: Nothing })
+
+fromItem :: Item -> Lease
+fromItem item = newLease (Item.tag item) (Item.name item)
 
 owner :: Lease -> Maybe Lease_
 owner = unwrap
