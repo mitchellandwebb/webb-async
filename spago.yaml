@@ -1,0 +1,38 @@
+package:
+  name: webb-async
+  dependencies:
+    - aff
+    - arrays
+    - console
+    - effect
+    - foldable-traversable
+    - maybe
+    - monad-loops
+    - prelude
+    - strings
+    - transformers
+    - tuples
+    - unsafe-coerce
+    - webb-refer
+    - webb-monad
+    - webb-stateful
+    - webb-random
+    - profunctor-lenses
+  test:
+    main: Test.Main
+    dependencies:
+      - spec
+      - spec-discovery
+      - spec-node
+      - webb-test
+workspace:
+  packageSet:
+    registry: 69.2.1
+  extraPackages:
+    spec-discovery: 8.2.0
+    webb-test: 0.0.1
+    webb-refer:
+      path: ../webb-refer
+    webb-monad: 0.0.2
+    webb-stateful: 0.0.2
+    webb-random: 0.0.1
