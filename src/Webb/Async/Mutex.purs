@@ -8,6 +8,7 @@ import Effect.Aff.Class (class MonadAff, liftAff)
 import Effect.Class (class MonadEffect, liftEffect)
 import Webb.Async.Internal.Mutex as Mutex
 import Webb.Async.Internal.Mutex.State (MutexState, newMutexState)
+import Webb.Monad.Prelude (launch_)
 
 
 newtype Mutex = M MutexState
@@ -28,12 +29,12 @@ lock' :: forall m. MonadAff m => Mutex -> String -> m Unit
 lock' self name = run self $ 
   \mutex -> Mutex.lock mutex (Just name)
 
-unlock :: forall m. MonadAff m => Mutex -> m Unit
-unlock self = run self $ 
+unlock :: forall m. MonadEffect m => Mutex -> m Unit
+unlock self = launch_ $ run self $ 
   \mutex -> Mutex.unlock mutex Nothing
 
-unlock' :: forall m. MonadAff m => Mutex -> String -> m Unit
-unlock' self name = run self $ 
+unlock' :: forall m. MonadEffect m => Mutex -> String -> m Unit
+unlock' self name = launch_ $ run self $ 
   \mutex -> Mutex.unlock mutex (Just name)
 
 locking :: forall m a. MonadAff m => Mutex -> Aff a -> m a
