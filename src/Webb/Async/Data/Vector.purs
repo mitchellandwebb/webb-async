@@ -4,8 +4,8 @@ import Prelude
 
 import Data.Array as Array
 import Data.Foldable (class Foldable)
-import Data.Maybe (Maybe)
-import Data.Newtype (class Newtype, unwrap, wrap)
+import Data.Maybe (Maybe, isJust)
+import Data.Newtype (class Newtype, unwrap, wrap, modify)
 
 
 {- Provide proper language for the inner operations we want to perform. It is NOT 
@@ -59,11 +59,44 @@ take n = unwrap >>> Array.take n >>> wrap
 takeEnd :: forall a. Int -> Vector a -> Vector a
 takeEnd n = unwrap >>> Array.takeEnd n >>> wrap
 
-head :: forall a. Vector a -> Maybe a
-head = unwrap >>> Array.head
+first :: forall a. Vector a -> Maybe a
+first = unwrap >>> Array.head
+
+tail :: forall a. Vector a -> Maybe (Vector a)
+tail = unwrap >>> Array.tail >>> (wrap <$> _)
+
+init :: forall a. Vector a -> Maybe (Vector a)
+init = unwrap >>> Array.init >>> (wrap <$> _)
 
 last :: forall a. Vector a -> Maybe a
 last = unwrap >>> Array.last
 
 reverse :: forall a. Vector a -> Vector a
 reverse = unwrap >>> Array.reverse >>> wrap
+
+empty :: forall a. Vector a
+empty = wrap []
+
+isEmpty :: forall a. Vector a -> Boolean
+isEmpty = size >>> (_ <= 0)
+
+size :: forall a. Vector a -> Int
+size = unwrap >>> Array.length
+
+find :: forall a. (a -> Boolean) -> Vector a -> Maybe a
+find f = unwrap >>> Array.find f
+
+canFind :: forall a. (a -> Boolean) -> Vector a -> Boolean
+canFind f vec = isJust (find f vec)
+
+findEq :: forall a. Eq a => a -> Vector a -> Maybe a
+findEq a vec = find (_ == a) vec
+
+canFindEq :: forall a. Eq a => a -> Vector a -> Boolean
+canFindEq a vec = isJust (findEq a vec)
+
+filter :: forall a. (a -> Boolean) -> Vector a -> Vector a
+filter f = modify $ Array.filter f
+
+reject :: forall a. (a -> Boolean) -> Vector a -> Vector a
+reject f vec = filter (not <<< f) vec
