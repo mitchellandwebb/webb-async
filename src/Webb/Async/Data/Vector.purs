@@ -3,6 +3,7 @@ module Webb.Async.Data.Vector where
 import Prelude
 
 import Data.Array as Array
+import Data.Foldable (class Foldable)
 import Data.Maybe (Maybe)
 import Data.Newtype (class Newtype, unwrap, wrap)
 
@@ -31,11 +32,20 @@ fromArray = wrap
 toArray :: forall a. Vector a -> Array a
 toArray = unwrap
 
+fromFoldable :: forall a f. Foldable f => f a -> Vector a
+fromFoldable = fromArray <<< Array.fromFoldable
+
 addLast :: forall a. a -> Vector a -> Vector a
 addLast a = unwrap >>> flip Array.snoc a >>> wrap
 
+addAllLast :: forall a f. Foldable f => f a -> Vector a -> Vector a
+addAllLast items vec = vec <> (fromFoldable items)
+
 addFirst :: forall a. a -> Vector a -> Vector a
 addFirst a = unwrap >>> Array.cons a >>> wrap
+
+addAllFirst :: forall a f. Foldable f => f a -> Vector a -> Vector a
+addAllFirst items vec = (fromFoldable items) <> vec
 
 drop :: forall a. Int -> Vector a -> Vector a
 drop n = unwrap >>> Array.drop n >>> wrap
