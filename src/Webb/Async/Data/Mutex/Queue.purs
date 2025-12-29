@@ -38,3 +38,6 @@ dequeue = modify $ Vector.drop 1
 
 enqueue :: Item -> Queue -> Queue
 enqueue item = modify $ Vector.addLast item
+
+size :: Queue -> Int
+size = unwrap >>> Vector.size
