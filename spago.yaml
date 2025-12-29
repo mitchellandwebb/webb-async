@@ -26,6 +26,7 @@ package:
       - spec-discovery
       - spec-node
       - webb-test
+
 workspace:
   packageSet:
     registry: 69.2.1
