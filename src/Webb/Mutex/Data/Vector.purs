@@ -1,4 +1,4 @@
-module Webb.Async.Data.Vector where
+module Webb.Data.Vector where
 
 import Prelude
 

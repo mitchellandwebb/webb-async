@@ -1,4 +1,4 @@
-module Webb.Async.Internal.Result where
+module Webb.Internal.Result where
 
 import Prelude
 

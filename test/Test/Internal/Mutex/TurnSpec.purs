@@ -4,14 +4,14 @@ import Test.Prelude
 
 import Data.Maybe (Maybe(..))
 import Effect.Class (liftEffect)
-import Webb.Async.Data.Mutex.Id as Id
-import Webb.Async.Data.Mutex.Item as Item
-import Webb.Async.Data.Mutex.Lease as Lease
-import Webb.Async.Data.Mutex.Queue as Queue
-import Webb.Async.Internal.Mutex.State as State
-import Webb.Async.Internal.Mutex.Turn as Turn
-import Webb.Async.Internal.Mutex.Unlocker as Unlocker
-import Webb.Async.Result as Result
+import Webb.Data.Mutex.Id as Id
+import Webb.Data.Mutex.Item as Item
+import Webb.Data.Mutex.Lease as Lease
+import Webb.Data.Mutex.Queue as Queue
+import Webb.Internal.Mutex.State as State
+import Webb.Internal.Mutex.Turn as Turn
+import Webb.Internal.Mutex.Unlocker as Unlocker
+import Webb.Result as Result
 import Webb.Monad.Prelude (_kill, delayInt, launch)
 
 spec :: Spec Unit

@@ -96,6 +96,7 @@
             "spec",
             "spec-discovery",
             "spec-node",
+            "webb-stateful",
             "webb-test"
           ],
           "build_plan": [
@@ -114,6 +115,7 @@
             "contravariant",
             "control",
             "datetime",
+            "debug",
             "distributive",
             "effect",
             "either",
@@ -137,6 +139,7 @@
             "lists",
             "maybe",
             "mmorph",
+            "monad-loops",
             "newtype",
             "node-buffer",
             "node-event-emitter",
@@ -158,6 +161,7 @@
             "posix-types",
             "prelude",
             "profunctor",
+            "profunctor-lenses",
             "record",
             "refs",
             "safe-coerce",
@@ -173,6 +177,9 @@
             "typelevel-prelude",
             "unfoldable",
             "unsafe-coerce",
+            "webb-monad",
+            "webb-refer",
+            "webb-stateful",
             "webb-test"
           ]
         }
@@ -1851,6 +1858,23 @@
         "refs",
         "transformers",
         "tuples"
+      ]
+    },
+    "webb-stateful": {
+      "type": "registry",
+      "version": "0.0.2",
+      "integrity": "sha256-ToT98nCMrrs/CB2QUn945UTw5xly6ladqi5ObYN9he0=",
+      "dependencies": [
+        "arrays",
+        "effect",
+        "foldable-traversable",
+        "lists",
+        "maybe",
+        "ordered-collections",
+        "prelude",
+        "tuples",
+        "webb-monad",
+        "webb-refer"
       ]
     },
     "webb-test": {

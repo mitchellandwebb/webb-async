@@ -3,10 +3,10 @@ module Test.Data.Mutex.QueueSpec where
 import Test.Prelude
 
 import Data.Maybe (Maybe(..))
-import Webb.Async.Data.Mutex.Id as Id
-import Webb.Async.Data.Mutex.Item as Item
-import Webb.Async.Data.Mutex.Queue as Queue
-import Webb.Async.Result as Result
+import Webb.Data.Mutex.Id as Id
+import Webb.Data.Mutex.Item as Item
+import Webb.Data.Mutex.Queue as Queue
+import Webb.Result as Result
 import Webb.Stateful (localEffect)
 
 

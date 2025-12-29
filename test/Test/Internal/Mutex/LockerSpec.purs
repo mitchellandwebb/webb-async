@@ -5,10 +5,10 @@ import Test.Prelude
 import Data.Maybe (Maybe(..))
 import Effect.Class (liftEffect)
 import Test.Spec.Assertions (expectError)
-import Webb.Async.Data.Mutex.Id as Id
-import Webb.Async.Internal.Mutex.Locker as Locker
-import Webb.Async.Internal.Mutex.State (newMutexState)
-import Webb.Async.Internal.Mutex.State as State
+import Webb.Data.Mutex.Id as Id
+import Webb.Internal.Mutex.Locker as Locker
+import Webb.Internal.Mutex.State (newMutexState)
+import Webb.Internal.Mutex.State as State
 
 spec :: Spec Unit
 spec = describe "locker" do

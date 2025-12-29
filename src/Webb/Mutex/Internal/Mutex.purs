@@ -1,15 +1,15 @@
-module Webb.Async.Internal.Mutex where
+module Webb.Internal.Mutex where
 
 import Prelude
 import Webb.State.Prelude
 
 import Data.Maybe (Maybe)
 import Effect.Aff (Aff, finally)
-import Webb.Async.Internal.Mutex.Locker as Locker
-import Webb.Async.Internal.Mutex.State (MutexState)
-import Webb.Async.Internal.Mutex.State as State
-import Webb.Async.Internal.Mutex.Turn as Turn
-import Webb.Async.Internal.Mutex.Unlocker as Unlocker
+import Webb.Internal.Mutex.Locker as Locker
+import Webb.Internal.Mutex.State (MutexState)
+import Webb.Internal.Mutex.State as State
+import Webb.Internal.Mutex.Turn as Turn
+import Webb.Internal.Mutex.Unlocker as Unlocker
 
 type Mutex = MutexState
 

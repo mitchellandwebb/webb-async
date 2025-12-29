@@ -1,11 +1,11 @@
-module Webb.Async.Data.Mutex.Item where
+module Webb.Data.Mutex.Item where
 
 import Prelude
 
 import Data.Maybe (Maybe(..))
 import Data.Newtype (class Newtype, unwrap, wrap)
-import Webb.Async.Data.Mutex.Id (Id)
-import Webb.Async.Result (Result)
+import Webb.Data.Mutex.Id (Id)
+import Webb.Result (Result)
 
 
 newtype Item = I Item_

@@ -1,4 +1,4 @@
-module Webb.Async.Internal.Mutex.Locker where
+module Webb.Internal.Mutex.Locker where
 
 import Prelude
 import Webb.State.Prelude
@@ -6,11 +6,11 @@ import Webb.State.Prelude
 import Data.Maybe (Maybe, fromMaybe)
 import Data.Newtype (class Newtype, unwrap)
 import Effect.Aff (Aff)
-import Webb.Async.Data.Mutex.Id (Id)
-import Webb.Async.Data.Mutex.Id as Id
-import Webb.Async.Data.Mutex.Lease as Lease
-import Webb.Async.Internal.Mutex.State (MutexState)
-import Webb.Async.Internal.Mutex.State as State
+import Webb.Data.Mutex.Id (Id)
+import Webb.Data.Mutex.Id as Id
+import Webb.Data.Mutex.Lease as Lease
+import Webb.Internal.Mutex.State (MutexState)
+import Webb.Internal.Mutex.State as State
 import Webb.Monad.Prelude (expect)
 
 

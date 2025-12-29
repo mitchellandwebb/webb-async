@@ -6,8 +6,8 @@ import Control.Monad.Error.Class (try)
 import Data.Either (isLeft)
 import Data.Maybe (Maybe(..))
 import Effect.Class (liftEffect)
-import Webb.Async.Internal.Mutex as Mutex
-import Webb.Async.Internal.Mutex.State as State
+import Webb.Internal.Mutex as Mutex
+import Webb.Internal.Mutex.State as State
 import Webb.Monad.Prelude (delayInt, launch_, throwString)
 
 

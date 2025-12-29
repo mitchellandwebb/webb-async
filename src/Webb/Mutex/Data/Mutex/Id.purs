@@ -1,4 +1,4 @@
-module Webb.Async.Data.Mutex.Id where
+module Webb.Data.Mutex.Id where
 
 import Prelude
 

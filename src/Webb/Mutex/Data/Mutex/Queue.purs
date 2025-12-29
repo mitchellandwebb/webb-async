@@ -1,13 +1,13 @@
-module Webb.Async.Data.Mutex.Queue where
+module Webb.Data.Mutex.Queue where
 
 import Prelude
 
 import Data.Maybe (Maybe)
 import Data.Newtype (class Newtype, modify, unwrap, wrap)
-import Webb.Async.Data.Mutex.Id (Id)
-import Webb.Async.Data.Mutex.Item (Item)
-import Webb.Async.Data.Mutex.Item as Item
-import Webb.Async.Data.Vector as Vector
+import Webb.Data.Mutex.Id (Id)
+import Webb.Data.Mutex.Item (Item)
+import Webb.Data.Mutex.Item as Item
+import Webb.Data.Vector as Vector
 
 {- Queue operations that are limited to the Item. -}
 

@@ -1,16 +1,16 @@
-module Webb.Async.Internal.Mutex.State where
+module Webb.Internal.Mutex.State where
 
 import Prelude
 import Webb.State.Prelude
 
 import Effect (Effect)
 import Effect.Aff (Aff)
-import Webb.Async.Data.Mutex.Id (Id)
-import Webb.Async.Data.Mutex.Id as Id
-import Webb.Async.Data.Mutex.Lease (Lease)
-import Webb.Async.Data.Mutex.Lease as Lease
-import Webb.Async.Data.Mutex.Queue (Queue)
-import Webb.Async.Data.Mutex.Queue as Queue
+import Webb.Data.Mutex.Id (Id)
+import Webb.Data.Mutex.Id as Id
+import Webb.Data.Mutex.Lease (Lease)
+import Webb.Data.Mutex.Lease as Lease
+import Webb.Data.Mutex.Queue (Queue)
+import Webb.Data.Mutex.Queue as Queue
 
 
 {- The basic shared state of a mutex. -}
