@@ -1,15 +1,16 @@
 module Webb.Async.Internal.Mutex.State where
 
 import Prelude
+import Webb.State.Prelude
 
 import Effect (Effect)
+import Effect.Aff (Aff)
 import Webb.Async.Data.Mutex.Id (Id)
 import Webb.Async.Data.Mutex.Id as Id
 import Webb.Async.Data.Mutex.Lease (Lease)
 import Webb.Async.Data.Mutex.Lease as Lease
 import Webb.Async.Data.Mutex.Queue (Queue)
 import Webb.Async.Data.Mutex.Queue as Queue
-import Webb.State.Prelude (ShowRef, newShowRef)
 
 
 {- The basic shared state of a mutex. -}
@@ -27,3 +28,6 @@ newMutexState = do
   id <- newShowRef Id.initial
   queue <- newShowRef Queue.empty
   pure { lease, id, queue }
+  
+size :: MutexState -> Aff Int
+size s = Queue.size <: s.queue
