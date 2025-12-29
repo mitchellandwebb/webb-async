@@ -1,4 +1,4 @@
-module Webb.Internal.Mutex.Turn where
+module Webb.Mutex.Internal.Mutex.Turn where
 
 import Prelude
 import Webb.State.Prelude
@@ -6,13 +6,13 @@ import Webb.State.Prelude
 import Data.Maybe (Maybe)
 import Data.Newtype (class Newtype, unwrap, wrap)
 import Effect.Aff (Aff)
-import Webb.Data.Mutex.Id (Id)
-import Webb.Data.Mutex.Id as Id
-import Webb.Data.Mutex.Item as Item
-import Webb.Data.Mutex.Lease as Lease
-import Webb.Data.Mutex.Queue as Queue
-import Webb.Internal.Mutex.State (MutexState)
-import Webb.Internal.Mutex.Unlocker as Unlocker
+import Webb.Mutex.Data.Mutex.Id (Id)
+import Webb.Mutex.Data.Mutex.Id as Id
+import Webb.Mutex.Data.Mutex.Item as Item
+import Webb.Mutex.Data.Mutex.Lease as Lease
+import Webb.Mutex.Data.Mutex.Queue as Queue
+import Webb.Mutex.Internal.Mutex.State (MutexState)
+import Webb.Mutex.Internal.Mutex.Unlocker as Unlocker
 import Webb.Result as Result
 import Webb.Monad.Prelude (onCancel)
 

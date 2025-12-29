@@ -1,4 +1,4 @@
-module Webb.Data.Mutex.Id where
+module Webb.Mutex.Data.Mutex.Id where
 
 import Prelude
 

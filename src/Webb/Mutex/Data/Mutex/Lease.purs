@@ -1,12 +1,12 @@
-module Webb.Data.Mutex.Lease where
+module Webb.Mutex.Data.Mutex.Lease where
 
 import Prelude
 
 import Data.Maybe (Maybe(..), fromMaybe, isJust, isNothing)
 import Data.Newtype (class Newtype, unwrap, wrap)
-import Webb.Data.Mutex.Id (Id)
-import Webb.Data.Mutex.Item (Item)
-import Webb.Data.Mutex.Item as Item
+import Webb.Mutex.Data.Mutex.Id (Id)
+import Webb.Mutex.Data.Mutex.Item (Item)
+import Webb.Mutex.Data.Mutex.Item as Item
 
 
 {- Represent the lease state. Owned, or not owned? If owned, by whom?

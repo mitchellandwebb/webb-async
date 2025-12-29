@@ -6,8 +6,8 @@ import Data.Maybe (Maybe(..))
 import Effect.Aff (Aff)
 import Effect.Aff.Class (class MonadAff, liftAff)
 import Effect.Class (class MonadEffect, liftEffect)
-import Webb.Internal.Mutex as Mutex
-import Webb.Internal.Mutex.State (MutexState, newMutexState)
+import Webb.Mutex.Internal.Mutex as Mutex
+import Webb.Mutex.Internal.Mutex.State (MutexState, newMutexState)
 import Webb.Monad.Prelude (launch_)
 
 

@@ -1,4 +1,4 @@
-module Webb.Internal.Mutex.Unlocker where
+module Webb.Mutex.Internal.Mutex.Unlocker where
 
 import Prelude
 import Webb.State.Prelude
@@ -7,12 +7,12 @@ import Data.Foldable (for_)
 import Data.Maybe (Maybe(..))
 import Data.Newtype (class Newtype, unwrap, wrap)
 import Effect.Aff (Aff)
-import Webb.Data.Mutex.Item (Item)
-import Webb.Data.Mutex.Item as Item
-import Webb.Data.Mutex.Lease as Lease
-import Webb.Data.Mutex.Queue as Queue
-import Webb.Internal.Mutex.State (MutexState)
-import Webb.Internal.Result as Result
+import Webb.Mutex.Data.Mutex.Item (Item)
+import Webb.Mutex.Data.Mutex.Item as Item
+import Webb.Mutex.Data.Mutex.Lease as Lease
+import Webb.Mutex.Data.Mutex.Queue as Queue
+import Webb.Mutex.Internal.Mutex.State (MutexState)
+import Webb.Mutex.Internal.Result as Result
 import Webb.Monad.Prelude (expect)
 
 

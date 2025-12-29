@@ -3,8 +3,8 @@ module Test.Data.Mutex.ItemSpec where
 import Test.Prelude
 
 import Data.Maybe (Maybe(..))
-import Webb.Data.Mutex.Id as Id
-import Webb.Data.Mutex.Item as Item
+import Webb.Mutex.Data.Mutex.Id as Id
+import Webb.Mutex.Data.Mutex.Item as Item
 import Webb.Result as Result
 
 

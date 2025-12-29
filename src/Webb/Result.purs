@@ -12,7 +12,7 @@ import Prelude
 import Effect.Aff.Class (class MonadAff)
 import Effect.Class (class MonadEffect)
 import Effect.Exception (Error)
-import Webb.Internal.Result as Result
+import Webb.Mutex.Internal.Result as Result
 
 
 type Result = Result.Result

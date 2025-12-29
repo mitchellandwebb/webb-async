@@ -1,4 +1,4 @@
-module Webb.Internal.Result where
+module Webb.Mutex.Internal.Result where
 
 import Prelude
 

@@ -1,16 +1,16 @@
-module Webb.Internal.Mutex.State where
+module Webb.Mutex.Internal.Mutex.State where
 
 import Prelude
 import Webb.State.Prelude
 
 import Effect (Effect)
 import Effect.Aff (Aff)
-import Webb.Data.Mutex.Id (Id)
-import Webb.Data.Mutex.Id as Id
-import Webb.Data.Mutex.Lease (Lease)
-import Webb.Data.Mutex.Lease as Lease
-import Webb.Data.Mutex.Queue (Queue)
-import Webb.Data.Mutex.Queue as Queue
+import Webb.Mutex.Data.Mutex.Id (Id)
+import Webb.Mutex.Data.Mutex.Id as Id
+import Webb.Mutex.Data.Mutex.Lease (Lease)
+import Webb.Mutex.Data.Mutex.Lease as Lease
+import Webb.Mutex.Data.Mutex.Queue (Queue)
+import Webb.Mutex.Data.Mutex.Queue as Queue
 
 
 {- The basic shared state of a mutex. -}

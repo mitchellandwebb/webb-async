@@ -5,12 +5,12 @@ import Test.Prelude
 import Data.Maybe (Maybe(..))
 import Effect.Class (liftEffect)
 import Test.Spec.Assertions (expectError)
-import Webb.Data.Mutex.Id as Id
-import Webb.Data.Mutex.Item as Item
-import Webb.Data.Mutex.Lease as Lease
-import Webb.Data.Mutex.Queue as Queue
-import Webb.Internal.Mutex.State as State
-import Webb.Internal.Mutex.Unlocker as Unlocker
+import Webb.Mutex.Data.Mutex.Id as Id
+import Webb.Mutex.Data.Mutex.Item as Item
+import Webb.Mutex.Data.Mutex.Lease as Lease
+import Webb.Mutex.Data.Mutex.Queue as Queue
+import Webb.Mutex.Internal.Mutex.State as State
+import Webb.Mutex.Internal.Mutex.Unlocker as Unlocker
 import Webb.Result as Result
 import Webb.Monad.Prelude (delayInt, forceMaybe', launch_)
 

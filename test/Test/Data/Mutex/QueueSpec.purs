@@ -3,9 +3,9 @@ module Test.Data.Mutex.QueueSpec where
 import Test.Prelude
 
 import Data.Maybe (Maybe(..))
-import Webb.Data.Mutex.Id as Id
-import Webb.Data.Mutex.Item as Item
-import Webb.Data.Mutex.Queue as Queue
+import Webb.Mutex.Data.Mutex.Id as Id
+import Webb.Mutex.Data.Mutex.Item as Item
+import Webb.Mutex.Data.Mutex.Queue as Queue
 import Webb.Result as Result
 import Webb.Stateful (localEffect)
 

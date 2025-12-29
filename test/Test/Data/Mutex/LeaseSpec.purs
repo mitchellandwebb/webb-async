@@ -3,8 +3,8 @@ module Test.Data.Mutex.LeaseSpec where
 import Test.Prelude
 
 import Data.Maybe (Maybe(..))
-import Webb.Data.Mutex.Id as Id
-import Webb.Data.Mutex.Lease as Lease
+import Webb.Mutex.Data.Mutex.Id as Id
+import Webb.Mutex.Data.Mutex.Lease as Lease
 
 
 

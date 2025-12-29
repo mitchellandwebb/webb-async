@@ -1,4 +1,4 @@
-module Webb.Data.Vector where
+module Webb.Mutex.Data.Vector where
 
 import Prelude
 

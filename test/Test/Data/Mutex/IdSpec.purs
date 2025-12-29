@@ -2,7 +2,7 @@ module Test.Data.Mutex.IdSpec where
 
 import Test.Prelude
 
-import Webb.Data.Mutex.Id as Id
+import Webb.Mutex.Data.Mutex.Id as Id
 
 
 spec :: Spec Unit

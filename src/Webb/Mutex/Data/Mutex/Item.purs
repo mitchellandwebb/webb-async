@@ -1,10 +1,10 @@
-module Webb.Data.Mutex.Item where
+module Webb.Mutex.Data.Mutex.Item where
 
 import Prelude
 
 import Data.Maybe (Maybe(..))
 import Data.Newtype (class Newtype, unwrap, wrap)
-import Webb.Data.Mutex.Id (Id)
+import Webb.Mutex.Data.Mutex.Id (Id)
 import Webb.Result (Result)
 
 
