@@ -7,6 +7,7 @@ import Data.Maybe (Maybe)
 import Effect.Aff (Aff, finally)
 import Webb.Async.Internal.Mutex.Locker as Locker
 import Webb.Async.Internal.Mutex.State (MutexState)
+import Webb.Async.Internal.Mutex.State as State
 import Webb.Async.Internal.Mutex.Turn as Turn
 import Webb.Async.Internal.Mutex.Unlocker as Unlocker
 
@@ -43,12 +44,8 @@ locking mutex mname prog = do
     prog
     
 isLocked :: Mutex -> Aff Boolean
-isLocked mutex = do
-  locker <- pure $ Locker.newLocker mutex
-  Locker.isLocked locker
+isLocked mutex = do State.isLocked mutex
 
 isLockedBy :: Mutex -> String -> Aff Boolean
-isLockedBy mutex name = do
-  locker <- pure $ Locker.newLocker mutex
-  Locker.isLockedByName locker name
+isLockedBy mutex name = do State.isLockedByName mutex name
 
