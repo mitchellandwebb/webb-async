@@ -1,5 +1,5 @@
 package:
-  name: webb-async
+  name: webb-mutex
   dependencies:
     - aff
     - arrays
