@@ -23,7 +23,7 @@ package:
       - webb-stateful
 
   publish:
-    version: 0.0.3
+    version: 0.0.4
     license: BSD-3-Clause
     location:
       githubOwner: mitchellandwebb
