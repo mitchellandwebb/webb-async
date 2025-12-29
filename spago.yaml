@@ -27,6 +27,13 @@ package:
       - spec-node
       - webb-test
 
+  publish:
+    version: 0.0.1
+    license: BSD-3-Clause
+    location:
+      githubOwner: mitchellandwebb
+      githubRepo: webb-mutex
+
 workspace:
   packageSet:
     registry: 69.2.1
