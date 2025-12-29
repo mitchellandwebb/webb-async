@@ -13,6 +13,8 @@ import Webb.Monad.Prelude (launch_)
 
 newtype Mutex = M MutexState
 
+derive newtype instance Show Mutex
+
 newMutex :: forall m. MonadEffect m => m Mutex
 newMutex = liftEffect do
   state <- newMutexState
