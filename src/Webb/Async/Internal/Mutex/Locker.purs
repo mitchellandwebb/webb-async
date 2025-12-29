@@ -10,6 +10,7 @@ import Webb.Async.Data.Mutex.Id (Id)
 import Webb.Async.Data.Mutex.Id as Id
 import Webb.Async.Data.Mutex.Lease as Lease
 import Webb.Async.Internal.Mutex.State (MutexState)
+import Webb.Async.Internal.Mutex.State as State
 import Webb.Monad.Prelude (expect)
 
 
@@ -30,17 +31,17 @@ getThis = unwrap >>> pure
 isLocked :: Locker -> Aff Boolean
 isLocked l = do 
   this <- getThis l
-  Lease.isOwned <: this.lease
+  State.isLocked this
 
 isLockedByName :: Locker -> String -> Aff Boolean
 isLockedByName l name = do 
   this <- getThis l
-  Lease.isOwnedBy name <: this.lease
+  State.isLockedByName this name
 
 isLockedById :: Locker -> Id -> Aff Boolean
 isLockedById l id = do 
   this <- getThis l
-  Lease.hasId id <: this.lease
+  State.isLockedById this id
   
 -- Attempt to lock with the given name, and return whether it succeeded.
 -- If re-entering with the same name, throw an error.

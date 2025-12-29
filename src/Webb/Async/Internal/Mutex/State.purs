@@ -31,3 +31,15 @@ newMutexState = do
   
 size :: MutexState -> Aff Int
 size s = Queue.size <: s.queue
+
+isLocked :: MutexState -> Aff Boolean
+isLocked this = do 
+  Lease.isOwned <: this.lease
+
+isLockedByName :: MutexState -> String -> Aff Boolean
+isLockedByName this name = do 
+  Lease.isOwnedBy name <: this.lease
+
+isLockedById :: MutexState -> Id -> Aff Boolean
+isLockedById this id = do 
+  Lease.hasId id <: this.lease
