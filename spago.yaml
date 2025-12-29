@@ -18,6 +18,7 @@ package:
     - webb-stateful
     - webb-random
     - profunctor-lenses
+
   test:
     main: Test.Main
     dependencies:
