@@ -5,6 +5,7 @@ import Webb.State.Prelude
 
 import Data.Maybe (Maybe)
 import Effect.Aff (Aff, finally)
+import Effect.Class (class MonadEffect)
 import Webb.Mutex.Internal.Mutex.Locker as Locker
 import Webb.Mutex.Internal.Mutex.State (MutexState)
 import Webb.Mutex.Internal.Mutex.State as State
@@ -30,7 +31,7 @@ lock mutex mname = do
   newTurn = do pure $ Turn.newTurn mutex
   
 -- Unlock with the given name.
-unlock :: Mutex -> Maybe String -> Aff Unit
+unlock :: forall m. MonadEffect m => Mutex -> Maybe String -> m Unit
 unlock mutex mname = do 
   unlocker <- newUnlocker 
   Unlocker.unlock unlocker mname
@@ -43,9 +44,9 @@ locking mutex mname prog = do
   finally (unlock mutex mname) do
     prog
     
-isLocked :: Mutex -> Aff Boolean
+isLocked :: forall m. MonadEffect m => Mutex -> m Boolean
 isLocked mutex = do State.isLocked mutex
 
-isLockedBy :: Mutex -> String -> Aff Boolean
+isLockedBy :: forall m. MonadEffect m => Mutex -> String -> m Boolean
 isLockedBy mutex name = do State.isLockedByName mutex name
 

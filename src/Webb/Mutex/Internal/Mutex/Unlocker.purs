@@ -6,14 +6,14 @@ import Webb.State.Prelude
 import Data.Foldable (for_)
 import Data.Maybe (Maybe(..))
 import Data.Newtype (class Newtype, unwrap, wrap)
-import Effect.Aff (Aff)
+import Effect.Class (class MonadEffect)
+import Webb.Monad.Prelude (expect)
 import Webb.Mutex.Data.Mutex.Item (Item)
 import Webb.Mutex.Data.Mutex.Item as Item
 import Webb.Mutex.Data.Mutex.Lease as Lease
 import Webb.Mutex.Data.Mutex.Queue as Queue
 import Webb.Mutex.Internal.Mutex.State (MutexState)
 import Webb.Mutex.Internal.Result as Result
-import Webb.Monad.Prelude (expect)
 
 
 newtype Unlocker = U MutexState
@@ -23,13 +23,13 @@ derive instance Newtype Unlocker _
 newUnlocker :: MutexState -> Unlocker
 newUnlocker = wrap
 
-getThis :: Unlocker -> Aff MutexState
+getThis :: forall m. MonadEffect m => Unlocker -> m MutexState
 getThis = unwrap >>> pure
 
 -- Attempt to unlock with the given name. If it's the _wrong_ name attempting
 -- to unlock, then some lock thinks it has the lock when it does not.
 -- So we error. Otherwise, we grant to the next item in the queue, if any.
-unlock :: Unlocker -> Maybe String -> Aff Unit
+unlock :: forall m. MonadEffect m => Unlocker -> Maybe String -> m Unit
 unlock u mname = do
   checkName 
   giveToNextOwner u
@@ -48,7 +48,7 @@ unlock u mname = do
           "Unlocked by incorrect name '" <> name <> "', but expected '" 
             <> show currentName <> "'"
 
-giveToNextOwner :: Unlocker -> Aff Unit
+giveToNextOwner :: forall m. MonadEffect m => Unlocker -> m Unit
 giveToNextOwner u = do
   clearLease u
   mitem <- dequeueNextItem u
@@ -56,12 +56,12 @@ giveToNextOwner u = do
     setNewOwner u item
     notifyThread u item
 
-clearLease :: Unlocker -> Aff Unit
+clearLease :: forall m. MonadEffect m => Unlocker -> m Unit
 clearLease u = do
   this <- getThis  u
   this.lease := Lease.none
   
-dequeueNextItem :: Unlocker -> Aff (Maybe Item)
+dequeueNextItem :: forall m. MonadEffect m => Unlocker -> m (Maybe Item)
 dequeueNextItem u = do
   this <- getThis u
 
@@ -69,12 +69,12 @@ dequeueNextItem u = do
   Queue.dequeue :> this.queue
   pure mnext
   
-setNewOwner :: Unlocker -> Item -> Aff Unit
+setNewOwner :: forall m. MonadEffect m => Unlocker -> Item -> m Unit
 setNewOwner u item = do
   this <- getThis u
   let newLease = Lease.fromItem item
   this.lease := newLease
   
-notifyThread :: Unlocker -> Item -> Aff Unit
+notifyThread :: forall m. MonadEffect m => Unlocker -> Item -> m Unit
 notifyThread _ item = do
   Result.return (Item.result item) unit
