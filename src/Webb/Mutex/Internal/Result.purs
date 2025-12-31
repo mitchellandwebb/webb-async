@@ -8,6 +8,7 @@ import Effect.Aff.Class (class MonadAff, liftAff)
 import Effect.Aff.Compat (EffectFnAff, fromEffectFnAff, runEffectFn1)
 import Effect.Class (class MonadEffect, liftEffect)
 import Effect.Uncurried (EffectFn1)
+import Webb.Monad.Prelude (launch_)
 
 
 {-  Expresses the idea of a return value in an Aff context. In reality,
@@ -66,3 +67,11 @@ await res = liftAff do
   let get = _get res
   fromEffectFnAff get
     
+-- Yields based on a hidden result, forcing resumption on a Promise-schedule, since
+-- a Promise underlies the Aff.
+yield :: forall m. MonadAff m => m Unit
+yield = do 
+  result <- newResult
+  launch_ do 
+    return result unit
+  await result
