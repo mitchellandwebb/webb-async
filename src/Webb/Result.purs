@@ -4,6 +4,7 @@ module Webb.Result
 , error
 , await
 , return
+, yield
 ) 
 where
 
@@ -28,3 +29,6 @@ await = Result.await
 
 return ∷ ∀ (m ∷ Type -> Type) (a ∷ Type). MonadEffect m ⇒ Result a → a → m Unit
 return = Result.return
+
+yield ∷ ∀ (m ∷ Type -> Type). MonadAff m ⇒ m Unit
+yield = Result.yield
